@@ -228,7 +228,7 @@ export default function ConnectedEcosystem() {
 
               {/* Data flow particles */}
               {animationSteps[currentStep].activeNodes.length > 1 && (
-                <div className="absolute inset-0">
+                <div className="absolute inset-0 flex flex-col justify-start items-start">
                   {[1, 2, 3].map((particle) => (
                     <div
                       key={particle}
