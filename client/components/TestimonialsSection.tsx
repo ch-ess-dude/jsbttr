@@ -127,7 +127,7 @@ export default function TestimonialsSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Loved by{" "}
-            <span className="bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent pl-4">
               Thousands
             </span>
           </h2>
