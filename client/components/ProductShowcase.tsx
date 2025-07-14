@@ -120,9 +120,7 @@ export default function ProductShowcase() {
               <div
                 key={product.name}
                 className="group relative bg-white rounded-3xl p-6 border border-border/50 hover:border-border transition-all duration-300 hover:shadow-2xl hover:shadow-brand-primary/10 hover:-translate-y-2 cursor-pointer"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
+                className={`group relative bg-white rounded-3xl p-6 border border-border/50 hover:border-border transition-all duration-300 hover:shadow-2xl hover:shadow-brand-primary/10 hover:-translate-y-2 cursor-pointer animate-slide-up ${`delay-[${index * 100}ms]`}`}
               >
                 {/* Gradient background on hover */}
                 <div
