@@ -99,8 +99,15 @@ export default function HeroSection() {
                   {[1, 2, 3, 4].map((i) => (
                     <div
                       key={i}
-                      className="bg-white/60 rounded-2xl p-4 border border-border/30 hover:shadow-lg transition-all duration-300 animate-fade-in"
-                      style={{ animationDelay: `${i * 200}ms` }}
+                      className={`bg-white/60 rounded-2xl p-4 border border-border/30 hover:shadow-lg transition-all duration-300 animate-fade-in ${
+                        i === 1
+                          ? "delay-200"
+                          : i === 2
+                            ? "delay-400"
+                            : i === 3
+                              ? "delay-600"
+                              : "delay-800"
+                      }`}
                     >
                       <div
                         className={`w-10 h-10 rounded-xl mb-3 ${
