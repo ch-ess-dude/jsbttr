@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "Explore Tools", href: "#tools" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "For Businesses", href: "#business" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Explore Tools", href: "/explore-tools" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "For Businesses", href: "/for-businesses" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
