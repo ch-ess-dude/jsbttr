@@ -228,18 +228,47 @@ export default function ConnectedEcosystem() {
 
               {/* Data flow particles */}
               {animationSteps[currentStep].activeNodes.length > 1 && (
-                <div className="absolute inset-0 flex flex-col justify-start items-start">
-                  {[1, 2, 3].map((particle) => (
-                    <div
-                      key={particle}
-                      className="absolute w-2 h-2 bg-brand-primary rounded-full animate-ping"
-                      style={{
-                        left: `${20 + particle * 15}%`,
-                        top: `${30 + particle * 5}%`,
-                        animationDelay: `${particle * 200}ms`,
-                      }}
-                    ></div>
-                  ))}
+                <div className="absolute inset-0">
+                  {connections.map((connection, index) => {
+                    const fromNode = ecosystemNodes.find(
+                      (n) => n.id === connection.from,
+                    );
+                    const toNode = ecosystemNodes.find(
+                      (n) => n.id === connection.to,
+                    );
+
+                    if (!fromNode || !toNode) return null;
+
+                    const isActive =
+                      isNodeActive(connection.from) &&
+                      isNodeActive(connection.to);
+
+                    if (!isActive) return null;
+
+                    const fromX = fromNode.position.x;
+                    const fromY = fromNode.position.y;
+                    const toX = toNode.position.x;
+                    const toY = toNode.position.y;
+
+                    // Calculate particles along the path
+                    return [1, 2, 3].map((particle) => {
+                      const progress = particle * 0.25; // 25%, 50%, 75% along the path
+                      const particleX = fromX + (toX - fromX) * progress;
+                      const particleY = fromY + (toY - fromY) * progress;
+
+                      return (
+                        <div
+                          key={`${index}-${particle}`}
+                          className="absolute w-2 h-2 bg-brand-primary rounded-full animate-ping"
+                          style={{
+                            left: `${particleX}%`,
+                            top: `${particleY}%`,
+                            animationDelay: `${particle * 150 + index * 100}ms`,
+                          }}
+                        ></div>
+                      );
+                    });
+                  })}
                 </div>
               )}
             </div>
